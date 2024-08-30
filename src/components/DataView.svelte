@@ -6,6 +6,7 @@
     type IModifiedRow,
   } from "../lib/utils";
   import DataGrid from "./DataGrid.svelte";
+  import config from "../config/config.json";
 
   let apiData: any = null;
   let error: string | null = null;
@@ -27,11 +28,11 @@
 
   async function fetchApiData(): Promise<any> {
     try {
-      const config = {
+      const apiConfig = {
         method: "get",
-        url: "http://localhost:8080/api/v1/equity/products",
+        url: config.api.products,
       };
-      return await fetchData(config);
+      return await fetchData(apiConfig);
     } catch (err: any) {
       error = err.message;
     }
@@ -50,11 +51,15 @@
 {#if error}
   <p>{error}</p>
 {:else if apiData}
-<div class="flex flex-col min-h-96">
-  <DataGrid rowData={apiData} />
-  <div class="border flex justify-end px-2">
-  <button on:click={saveData} class="bg-red-500">Save Data</button>
-  </div>
+  <div class="flex flex-col">
+    <DataGrid rowData={apiData} />
+    <div class="flex justify-end px-2">
+      <button
+        on:click={saveData}
+        class="bg-blue-500 text-white font-semibold text-sm px-2 py-1"
+        >Save</button
+      >
+    </div>
   </div>
 {:else}
   <p class="text-white">Loading...</p>

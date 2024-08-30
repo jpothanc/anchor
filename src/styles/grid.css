@@ -1,6 +1,6 @@
 /* Styling column headers in Handsontable */
 .custom-table .ht_clone_top .htCore th {
-  background-color: #1f1f1f; /* Dark background for headers */
+  background-color: #204c7e; /* Dark background for headers */
   color: #fff; /* White text color */
   border-bottom: 2px solid #666; /* Gray border for separation */
   font-weight: bold; /* Make header text bold */
@@ -8,10 +8,10 @@
 
 .custom-table .htCore th,
 .custom-table .htCore td {
-  background-color: #373636; /* Light grey background for cells */
+  background-color: #1a1818; /* Light grey background for cells */
   color: #eae5e5; /* Dark text color */
   border-bottom: 1px solid #efeaea; /* Subtle borders for distinction */
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* Basic dark theme styling for custom-table Handsontable */

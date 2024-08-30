@@ -7,9 +7,9 @@
 
 <nav
   class="flex justify-between items-center px-2 sticky
-top-0 mx-auto bg-white h-14"
+top-0 mx-auto bg-white h-12 border-b border-blue-500"
 >
-  <div class="logo">
+  <div class="font-bold text-2xl">
     <a href="/">Anchor</a>
   </div>
   <ul class="flex gap-2 list-none">

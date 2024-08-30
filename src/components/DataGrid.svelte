@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
   import Handsontable from "handsontable";
-  import "handsontable/dist/handsontable.full.css"; // Import Handsontable CSS
+  import "handsontable/dist/handsontable.full.css";
   import { modifiedRowsStore, type IModifiedRow } from "../lib/utils";
 
   window.addEventListener("resize", function () {
@@ -16,10 +16,6 @@
 
   export let rowData: any[];
 
-  async function saveData(): Promise<void> {
-    const tableData: any[][] = hot.getData();
-    console.log(modifiedRows);
-  }
   interface ICellChange {
     row: number;
     column: string;
@@ -74,7 +70,6 @@
   let hot: Handsontable;
 
   onMount(() => {
-    // Calculate the width of the parent container
     var parentContainer = document.getElementById("hotContainer");
     const parentWidth = parentContainer?.clientWidth;
     const parentHeight = parentContainer?.clientHeight;
@@ -82,13 +77,11 @@
     var colHeaders = Object.keys(rowData[0]).map((key) => key.toUpperCase());
 
     hot = new Handsontable(hotContainer, {
-      height: parentHeight,
+      height: parentHeight ?? 0 - 10,
       width: parentWidth,
-
       rowHeaders: false,
-      //colHeaders: false,
       contextMenu: true,
-      colHeaders: colHeaders, // Set column names here
+      colHeaders: colHeaders,
       data: rowData,
       filters: true,
       dropdownMenu: true,
@@ -114,8 +107,8 @@
   });
 </script>
 
-<div id="hotContainer" class="flex flex-wrap min-h-[70vh] w-full p-2 mt-10">
-  <div bind:this={hotContainer}></div>
+<div id="hotContainer" class="flex flex-wrap min-h-[70vh] w-full p-2 mt-5">
+  <div class="text-sm" bind:this={hotContainer}></div>
 </div>
 
 <style>
