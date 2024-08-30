@@ -1,0 +1,10 @@
+
+Install handsontable 
+
+npm install @handsontable/svelte
+
+npm install axios
+
+
+
+
