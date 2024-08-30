@@ -79,7 +79,8 @@
     const parentWidth = parentContainer?.clientWidth;
     const parentHeight = parentContainer?.clientHeight;
 
-    var colHeaders = Object.keys(rowData[0]);
+    var colHeaders = Object.keys(rowData[0]).map((key) => key.toUpperCase());
+
     hot = new Handsontable(hotContainer, {
       height: parentHeight,
       width: parentWidth,
